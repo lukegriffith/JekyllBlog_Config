@@ -1,0 +1,37 @@
+{
+  "name": "jekyll",
+  //...
+  "suppressTaskName": true,
+  "command": "jekyll",
+  "isShellCommand": true,
+  "args": [
+
+  ],
+  "tasks": [
+	  
+	{
+		"taskName": "Launch"	  
+	},
+    {
+      // Notes
+      // Task outputs site to JekyllBlog_Site
+      
+      //Build Task
+      "taskName": "build",
+      //Run On Shift+Ctrl+B
+      "isBuildCommand": true,
+      //Don't run when Shift+Ctrl+T
+      "isTestCommand": false,
+      // Show the output window if error any
+      "showOutput": "silent",
+      //Npm Task Name
+      "args": [
+        "build",
+        "--destination",
+        "C:\\Users\\lukem\\Documents\\GitHub\\JekyllBlog_Site"
+        
+        
+      ]
+    }
+  ]
+}
