@@ -13,3 +13,4 @@ Get-S3Object -BucketName lgjekyllblog -KeyPrefix "\" -Credential $cred | Remove-
 Write-Verbose "Starting Upload"
 
 Write-S3Object -BucketName lgjekyllblog -Folder "C:\Users\lukem\Documents\GitHub\JekyllBlog_Site" -Recurse -Credential $cred -KeyPrefix '\' -Verbose
+
