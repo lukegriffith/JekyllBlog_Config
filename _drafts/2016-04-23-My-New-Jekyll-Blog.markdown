@@ -3,6 +3,7 @@ layout: post
 title:  "My new Jekyll blog."
 date:   2016-04-23 17:00:21 +0100
 categories: jekyll update
+author: Luke
 ---
 
 I've move my blog to a Jekyll backed static page site, needless to say I'm very happy with how simplistic the setup is.
@@ -33,25 +34,3 @@ jekyll serve
 
 
 
-
-# S3 Deployment
-
-{% highlight powershell %}
-
-Import-Module "C:\Program Files (x86)\AWS Tools\PowerShell\AWSPowerShell"
-
-$VerbosePreference = 'Continue'
-
-$data = ConvertFrom-StringData (Get-AwsCredential)
-
-$cred = New-AWSCredentials -AccessKey $data.AWSAccessKeyId -SecretKey $data.AWSSecretKey
-
-Write-Verbose "Cleaning bucket..."
-
-Get-S3Object -BucketName $bucket -KeyPrefix "\" -Credential $cred | Remove-S3Object -BucketName $bucket -Force -Credential $cred
-
-Write-Verbose "Starting Upload"
-
-Write-S3Object -BucketName $bucket -Folder $_site -Recurse -Credential $cred -KeyPrefix '\' -Verbose
-
-{% endhighlight %}
