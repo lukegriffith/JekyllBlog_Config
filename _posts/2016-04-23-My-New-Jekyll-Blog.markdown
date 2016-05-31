@@ -6,7 +6,9 @@ categories: jekyll update
 author: Luke
 ---
 
-I've move my blog to a Jekyll backed static page site, needless to say I'm very happy with how simplistic the setup is.
+After a short hiatus I'm back, with a new platform to host my technology blog, I've moved to a Jekyll backed static page project, what is simple to deploy and has me very happy with the automation potential around the deployment process.
+
+Its enabled me to reduce the cost of my hosting to mere pennies while still having full control of all aspects of its hosting environment. 
 
 # Install
 
