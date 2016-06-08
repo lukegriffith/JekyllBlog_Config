@@ -4,8 +4,10 @@ title:  "Deploying a Jekyll blog to S3 via PowerShell."
 date:   2016-04-23 17:00:21 +0100
 categories: jekyll aws powershell s3
 ---
-I use Amazon web services to host this site, the content sits on an S3 bucket in Ireland and I use Amazon's CloudFront content delivery network to ensure fast delivery to whoever requests. Because I use Jekyll, the site is all static files meaning no external APIs are being called so there's no JavaScript plugin waiting around for content to be delivered back. 
-All my site content it located within a git repository, and I use a powershell script with the AWS module for powershell to write that directory straight to the root of my S3 bucket, this is done after sanitising the environment (should probably remove the delete as the site would be unavailable)
+I use Amazon web services to host this site, the content sits on an S3 bucket in Ireland and I use Amazon's CloudFront to ensure fast delivery to whoever requests. Because I use Jekyll the site is all static files meaning no external APIs are being called so there's no JavaScript plugin waiting around for content to be delivered back. 
+All my site content it located within a git repository, and I use a powershell script with the AWS module for powershell to write that directory straight to the root of my S3 bucket, this is done after sanitising the environment (should probably remove the delete as the site would be unavailable),
+
+The script is a simple few lines, and I have it executed via visual studio codes 
 
 
 # S3 Deployment
