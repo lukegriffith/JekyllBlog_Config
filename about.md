@@ -14,6 +14,9 @@ He is enthusiastic to learn about the development world and exploring different 
 
 ## Experience 
 
+# G-Research (Oct 2015 - Present)
+**Automation Engineer**
+
 # Attenda (Oct 2011 - Oct 2015)
 **Infrastructure Engineering**
 

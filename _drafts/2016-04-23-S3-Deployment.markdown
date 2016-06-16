@@ -31,3 +31,7 @@ Write-Verbose "Starting Upload"
 Write-S3Object -BucketName $bucket -Folder $_site -Recurse -Credential $cred -KeyPrefix '\' -Verbose
 
 {% endhighlight %}
+
+
+# Configuring CloudFront
+
