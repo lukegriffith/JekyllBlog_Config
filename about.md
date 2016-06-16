@@ -29,6 +29,7 @@ Working indepth supporting and maintaining the numerous client networks using so
     
     - Redhat Linux
     
+    
     - Web hosted solutions on Apache & IIS
     
     - Database administration on Microsoft SQL & MySql
