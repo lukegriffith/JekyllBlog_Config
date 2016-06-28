@@ -8,11 +8,11 @@ author: Luke
 
 # Intro
 
-Last week i made a blog post about the DSC framework and its limitations, I can now withdraw that statment. for me it was a learning experience and taught me to always test on multiple versions and operating systems before you come to a theory.
+Last week i made a blog post about the DSC framework and its limitations, I can now withdraw that statement. for me it was a learning experience and taught me to always test on multiple versions and operating systems before you come to a theory.
 
-This post is to show an example of how to use the DSC framework in a better way, to hopfully reduce code smells and reduce repetetive code use, keeping close to agile principles. In the WMF 4 way of writing resources, many times i came across functions that I was using time and time again in different modules that had DSC resources. 
+This post is to show an example of how to use the DSC framework in a better way, to hopefully reduce code smells and reduce repetitive code use, keeping close to agile principles. In the WMF 4 way of writing resources, many times i came across functions that I was using time and time again in different modules that had DSC resources. 
 
-Eventually I setteled for a helper module that my resources depended on but due to the limitations of the WMF4 LCM and pull server - having a requierment of a module that was not already located on the box caused issues for the download manager as it could not validate the modules. After a number of hacks and effectively bending powershell and DSC out of shape, I managed to get my helper module and use it as a central store for useful functions to be used across a number of DSC resources. 
+Eventually I settled for a helper module that my resources depended on but due to the limitations of the WMF4 LCM and pull server - having a requirement of a module that was not already located on the box caused issues for the download manager as it could not validate the modules. After a number of hacks and effectively bending Powershell and DSC out of shape, I managed to get my helper module and use it as a central store for useful functions to be used across a number of DSC resources. 
 
 Now on WMF 5, utilizing class based resources and inheritance I believe there is a better way to achieve this. 
 
@@ -20,7 +20,7 @@ Now on WMF 5, utilizing class based resources and inheritance I believe there is
 
 [GITHUB PROJECT LINK](https://github.com/lukemgriffith/DSCInheritance)
 
-See the above link to the github project, I've used this as an example of how inheritance can be achieved in DSC, in this project you have the two powershell modules 
+See the above link to the GitHub project, I've used this as an example of how inheritance can be achieved in DSC, in this project you have the two Powershell modules 
 
     -- Modules 
         |-- Base
@@ -46,7 +46,7 @@ PsDscRunAsCredential [PSCredential]       False {}
  
 {% endhighlight %}
 
-If you look at the class for InheritedResource, not a lot is going on compared to what you might expect a standard DSC resource to have. A single property $SettingName is delcared and made the Key of the resource, yet without a valid Get/Set/Test the resource is still valid and you can compile a mof, Furthermore the properteis above Enforce and Ensure are no where to be seen.  
+If you look at the class for InheritedResource, not a lot is going on compared to what you might expect a standard DSC resource to have. A single property $SettingName is declared and made the Key of the resource, yet without a valid Get/Set/Test the resource is still valid and you can compile a mof, Furthermore the properties above Enforce and Ensure are no where to be seen.  
 
 {% highlight powershell %}
 using Module Base
@@ -123,14 +123,14 @@ class InheritedResource : Base
 
 So the above inheritedResource Set method that DSC executes would first hit the Base Set method, execute the central logic defined in this resource, then pass it through to the overridden xSet method and execute the individual resource logic. 
 
-This method alone, can cut down a lot of repetetive code if you need to engage a logger, or send notifications to a monitoring tool that a configuration has started converging this is where you would want to do it and it would stop you from littering your individual resources with the exact same code. This approach makes your implementation neater, reduces code reusage but also allows you to have a central place to change the workflow if required. 
+This method alone, can cut down a lot of repetitive code if you need to engage a logger, or send notifications to a monitoring tool that a configuration has started converging this is where you would want to do it and it would stop you from littering your individual resources with the exact same code. This approach makes your implementation neater, reduces code re-usage but also allows you to have a central place to change the workflow if required. 
 
 
 # General Methods
 
 The second benefit to this, is the ability to have shared methods defined on the base class that can be used across all resources. Take for example a method called $this.WriteLog().
 
-Potentially WriteLog() might send a line to a log file on disk, or send an SNMP trap to an external monitor - the implementation of this code when defined on the base resource is only made once and can be used across all resoures that utilize the Base class, and similar to the shared Set method, you have a central place to change this - incase a new monitoring system has been brought into production it reduces the need to change code to a single point in the base class. 
+Potentially WriteLog() might send a line to a log file on disk, or send an SNMP trap to an external monitor - the implementation of this code when defined on the base resource is only made once and can be used across all resources that utilize the Base class, and similar to the shared Set method, you have a central place to change this - in case a new monitoring system has been brought into production it reduces the need to change code to a single point in the base class. 
 
 The actual implementation of the base class for this project can be found [here](https://github.com/lukemgriffith/DSCInheritance/blob/master/Modules/Base/Base.psm1) and you can see I've already defined a number of default methods. Ideally I will look to expand this to include a number of useful methods that can be used across the board for all resources so things like Logging and checking restart times can be moved to this. 
 
