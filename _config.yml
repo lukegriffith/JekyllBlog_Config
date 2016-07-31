@@ -18,3 +18,5 @@ github_username:  lukemgriffith
 
 # Build settings
 markdown: kramdown
+
+exclude: ['*.txt','*.ps1']
