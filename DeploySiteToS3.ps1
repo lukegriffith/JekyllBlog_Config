@@ -10,6 +10,7 @@
 Import-Module AWsPowerShell
 
 $VerbosePreference = 'Continue'
+$ErrorAction = 'Stop'
 
 
 
