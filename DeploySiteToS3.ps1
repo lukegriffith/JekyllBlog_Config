@@ -1,8 +1,25 @@
-﻿Import-Module "C:\Program Files (x86)\AWS Tools\PowerShell\AWSPowerShell"
+﻿Import-Module AWsPowerShell
 
 $VerbosePreference = 'Continue'
 
-$data = ConvertFrom-StringData (Get-Content -Path $PSScriptRoot\AWSCred.txt -Raw)
+
+
+Push-Location
+
+Set-Location $PSScriptRoot
+
+Write-Verbose "Starting Jekyll Build."
+Write-Verbose ("--"*20)
+
+bundle exec jekyll build | ForEach-Object {
+
+    Write-Verbose $_
+
+} 
+
+
+
+$data = ConvertFrom-StringData (Get-Content -Path C:\Users\TC\config\rootkey.csv -Raw)
 
 $cred = New-AWSCredentials -AccessKey $data.AWSAccessKeyId -SecretKey $data.AWSSecretKey
 
@@ -12,5 +29,5 @@ Get-S3Object -BucketName lgjekyllblog -KeyPrefix "\" -Credential $cred | Remove-
 
 Write-Verbose "Starting Upload"
 
-Write-S3Object -BucketName lgjekyllblog -Folder "C:\Users\lukem\Documents\GitHub\JekyllBlog_Site" -Recurse -Credential $cred -KeyPrefix '\' -Verbose
+Write-S3Object -BucketName lgjekyllblog -Folder "$PSScriptRoot\_site" -Recurse -Credential $cred -KeyPrefix '\' -Verbose
 
