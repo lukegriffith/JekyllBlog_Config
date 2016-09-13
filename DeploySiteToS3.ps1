@@ -1,4 +1,13 @@
-﻿Import-Module AWsPowerShell
+﻿<#
+
+    .Notes
+        ChangeLog:
+            13/09/2016: Modified script to allow to run from TeamCity, added Jekyll build steps and pushed to verbose.
+
+
+#>
+
+Import-Module AWsPowerShell
 
 $VerbosePreference = 'Continue'
 
