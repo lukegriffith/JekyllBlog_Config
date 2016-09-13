@@ -3,9 +3,9 @@
 title: jabbering from a child of the internet.
 locale: en_US
 description: Luke's place to talk about work and studies. 
-logo: bio-photo-2.jpg
+logo: Ey596JUL.jpg
 search: true
-url: http://www.lukegriffith.co.uk
+url: http://127.0.0.1:4000/
 
 # Jekyll configuration
 
