@@ -7,6 +7,8 @@ categories: documentation
 author: luke_griffith
 ---
 
-Welcome to my introdution series for PowerShell, I will be releasing a number of posts that will be targeted towards new comers to PowerShell with documentation that I've written. Inspired by the Month of Lunches seires. 
+Welcome to my introdution series for PowerShell, I will be releasing a number of posts that will be targeted towards new comers to PowerShell with documentation that I've written. Inspired by the Month of Lunches seires.
+
+Some of this is still targeted for PowerShell v4, and will be updated in time. 
 
 1. [Powershell, Cmdlets and Help]({{ site.url }}/documentation/PowerShell-Cmdlets-Help/)
