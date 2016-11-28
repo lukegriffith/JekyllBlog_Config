@@ -79,8 +79,8 @@ $ComputerName = "HostA"
 $IPAddress = "10.0.0.20"
  
 $object = [pscustomobject]@{
-ComputerName = "HostA"
-$IPAddress = "10.0.0.20"
+    ComputerName = "HostA"
+    $IPAddress = "10.0.0.20"
 }
  
 $object
