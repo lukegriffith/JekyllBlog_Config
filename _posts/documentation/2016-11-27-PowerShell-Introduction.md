@@ -12,3 +12,4 @@ Welcome to my introdution series for PowerShell, I will be releasing a number of
 Some of this is still targeted for PowerShell v4, and will be updated in time. 
 
 1. [Powershell, Cmdlets and Help]({{ site.url }}/documentation/PowerShell-Cmdlets-Help/)
+2. [PSObjects]({{ site.url }}/documentation/PowerShell-PSObjects/)
