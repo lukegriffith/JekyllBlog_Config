@@ -29,7 +29,18 @@ bundle exec jekyll build | ForEach-Object {
 
 
 
-$data = ConvertFrom-StringData (Get-Content -Path C:\Users\TC\config\rootkey.csv -Raw)
+
+
+
+if ($env:COMPUTERNAME -eq "DESKTOP-ML1LNO4") {
+    $path = 'C:\Users\lukem\Documents\rootkey.csv'    
+}
+else {
+    $path = 'C:\Users\TC\config\rootkey.csv'
+}
+
+
+$data = ConvertFrom-StringData (Get-Content -Path $path -Raw)
 
 $cred = New-AWSCredentials -AccessKey $data.AWSAccessKeyId -SecretKey $data.AWSSecretKey
 
