@@ -7,6 +7,10 @@ categories: documentation
 author: luke_griffith
 ---
 
+# Why do you want this?
+These decorations can be added to powershell elements to provide more information via reflection to outside frameworks, allowing for more modular and extensible module design.
+
+
 # Property attributes
 These can be applied to properties of classes to give extra meaning to it, effectively adding meta data. This meta data can be used by PowerShell developers to utilize framework instructions when working with an application. 
 This type of scenario might come when you're wanting to map class properties to API queries.
@@ -128,7 +132,7 @@ function Get-HostData {
 
 {% endhighlight %}
 
-In the above example, i've coded out a Web function attribute and this can be added to the function much like the CmdletBinding attribute.
+In the above example, I've coded out a Web function attribute and this can be added to the function much like the CmdletBinding attribute.
 In this case, the attributes provide a web framework data around the HTML route for this function to be called at, and what method it takes.
 
 
