@@ -135,5 +135,24 @@ function Get-HostData {
 In the above example, I've coded out a Web function attribute and this can be added to the function much like the CmdletBinding attribute.
 In this case, the attributes provide a web framework data around the HTML route for this function to be called at, and what method it takes.
 
+To obtain this metadata, I just need to get the FunctionInfo.
 
 
+{% highlight powershell %}
+$function = Get-Command Get-HostData
+
+$function.ScriptBlock.Attributes
+
+
+# Method                  : GET
+# Route                   : api/hosts
+# DefaultParameterSetName : 
+# SupportsShouldProcess   : False
+# SupportsPaging          : False
+# SupportsTransactions    : False
+# ConfirmImpact           : Medium
+# HelpUri                 : 
+# RemotingCapability      : PowerShell
+# TypeId                  : Web
+
+{% endhighlight %}
